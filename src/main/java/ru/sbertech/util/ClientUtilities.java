@@ -7,10 +7,10 @@ import java.util.logging.Logger;
  */
 public class ClientUtilities {
 
-    static Logger log  = Logger.getLogger(ClientUtilities.class.getName());
+    static Logger log = Logger.getLogger(ClientUtilities.class.getName());
 
 
-    public static Integer StringtoInteger(String s, String description) {
+    public static Integer stringToInteger(String s, String description) {
         Integer res = null;
         try {
             res = Integer.parseInt(s);

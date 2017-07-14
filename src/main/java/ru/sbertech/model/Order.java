@@ -4,24 +4,15 @@ package ru.sbertech.model;
  * Created by Сергей on 07.07.2017.
  */
 public class Order {
-    // имя клиента
-    private String clientName;
+
     // наименование операции
     private String operation;
     // Наименование акции
     private String equityName;
     //цена заявки
-    private String proposition;
+    private Integer proposition;
     // количество
-    private String quantity;
-
-    public String getClientName() {
-        return clientName;
-    }
-
-    public void setClientName(String clientName) {
-        this.clientName = clientName;
-    }
+    private Integer quantity;
 
     public String getOperation() {
         return operation;
@@ -39,19 +30,43 @@ public class Order {
         this.equityName = equityName;
     }
 
-    public String getProposition() {
+    public Integer getProposition() {
         return proposition;
     }
 
-    public void setProposition(String proposition) {
+    public void setProposition(Integer proposition) {
         this.proposition = proposition;
     }
 
-    public String getQuantity() {
+    public Integer getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(String quantity) {
+    public void setQuantity(Integer quantity) {
         this.quantity = quantity;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Order)) return false;
+
+        Order order = (Order) o;
+
+        if (!equityName.equals(order.equityName)) return false;
+        if (!operation.equals(order.operation)) return false;
+        if (!proposition.equals(order.proposition)) return false;
+        if (!quantity.equals(order.quantity)) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = operation.hashCode();
+        result = 31 * result + equityName.hashCode();
+        result = 31 * result + proposition.hashCode();
+        result = 31 * result + quantity.hashCode();
+        return result;
     }
 }

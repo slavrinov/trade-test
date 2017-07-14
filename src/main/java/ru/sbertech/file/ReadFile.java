@@ -13,7 +13,11 @@ import java.util.stream.Stream;
  */
 public class ReadFile {
 
-   public static List read(String filename) {
+    /*
+    * Считываем данные из файла
+    * @param String filename имя файла
+    * */
+    public static List read(String filename) {
         try (Stream<String> stream = Files.lines(Paths.get(filename))) {
             //1. filter line 3
             //2. convert all content to upper case
